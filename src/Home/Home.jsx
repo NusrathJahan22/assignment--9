@@ -47,7 +47,8 @@ const Home = () => {
 
 <div className="grid grid-cols-1 lg:grid-cols-3 items-center justify-center mx-20 mt-5">
   {/* card 1 */}
-<div className="card card-compact w-96 bg-base-100 shadow-xl">
+ 
+  <div className="card card-compact w-96 bg-base-100 shadow-xl" >
   <figure><img className="rounded-full" src="https://i.ibb.co/HgY9CZS/wedding.jpg" alt="Shoes" /></figure>
   <div className="card-body">
   <p className='text-3xl font-bold text-pink-400'>Wedding Parties</p>
@@ -58,6 +59,8 @@ const Home = () => {
     </div>
   </div>
 </div>
+  
+
 
 {/* card 2 */}
 <div className="card card-compact w-96 bg-base-100 shadow-xl">

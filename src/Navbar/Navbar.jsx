@@ -65,8 +65,7 @@ Contact
           <button className='bg-pink-400 btn p-2 rounded-lg font-bold'>Login</button>
           </Link>
             }
-            
-              </div>
+           </div>
               
         </div>
     );
