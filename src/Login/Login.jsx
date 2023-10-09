@@ -1,8 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 
 const Login = () => {
+const [loginError, setLoginError] = useState('')
+const { signInWithGoogle } = useContext(AuthContext);
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+
+const handleGoogleSignIn = () => {
+  signInWithGoogle()
+      .then(result => {
+          console.log(result.user)
+      })
+      .catch(error => {
+          console.error(error)
+      })
+}
+
 const {signIn} =useContext(AuthContext);
 const handleLogin =e =>{
     e.preventDefault();
@@ -10,14 +26,22 @@ const handleLogin =e =>{
     const form = new FormData(e.currentTarget);
     const email =form.get('email');
     const password =form.get('password');
-    
     console.log(email,password)
+
+setLoginError('');
+    if(password.length < 6 ){
+      setLoginError('password should be at least 6 characters and a letter or longer');
+      return 
+    }
+    
     signIn(email,password)
     .then(result =>{
       console.log(result.user)
+      
     })
     .catch(error =>{
       console.error(error)
+      setLoginError(error.message)
     })
 }
 
@@ -46,9 +70,13 @@ const handleLogin =e =>{
         </div>
       </form>
            </form>
+           {
+            loginError && <p className='text-red-600'>{loginError}</p>
+           }
            <p className='text-center mt-5'>
             Do not have an account ? <Link  className='text-pink-600'to="/register">Register</Link>
            </p>
+           <button onClick={handleGoogleSignIn}>Sign in with google</button>
 
            
 

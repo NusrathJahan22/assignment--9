@@ -1,8 +1,10 @@
-import  { useContext } from 'react';
+import  { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const Register = () => {
+const [registerError , setRegisterError] =useState('')
 
   const {createUser} = useContext(AuthContext);
 
@@ -15,13 +17,23 @@ const Register = () => {
         const password = form.get('password');
         console.log(name,email,password);
 
+        setRegisterError('');
+if(password.length < 6 ){
+  setRegisterError('password should be at least 6 characters or longer');
+  return 
+}
+
+
+
 
         createUser(email,password)
         .then(result =>{
           console.log(result.user)
+
         })
         .catch(error =>{
         console.error(error)
+        setRegisterError(error.message);
         })
     }
 
@@ -57,6 +69,9 @@ const Register = () => {
         </div>
       
            </form>
+           {
+            registerError && <p className='text-red-600'>{registerError}</p>
+           }
            <p className='text-center mt-5'>
             Already have an account ? <Link  className='text-pink-600'to="/login">Login</Link>
            </p>

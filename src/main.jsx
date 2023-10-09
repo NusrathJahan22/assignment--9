@@ -21,12 +21,15 @@ import Service3 from './Pages/Service3';
 import Engagement from './Engagement/Engagement';
 import Baby from './baby/Baby';
 import Retirement from './retirement/Retirement';
+import Error from './Error/Error';
+import PrivateRoute from './Private/PrivateRoute';
 // import { AuthProvider } from './Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage></MainPage>,
+    // element:<Error></Error>,
     children:[
       {
         path:"/",
@@ -51,27 +54,27 @@ const router = createBrowserRouter([
       },
       {
         path:"/service3",
-        element:<Service3></Service3>
+        element:<PrivateRoute><Service3></Service3></PrivateRoute>
       },
       {
         path:"/service4",
-        element:<Service4></Service4>
+        element:<PrivateRoute><Service4></Service4></PrivateRoute>
       },
       {
         path:"/wedding",
-        element:<Wedding></Wedding>
+        element:<PrivateRoute><Wedding></Wedding></PrivateRoute>
       },
       {
         path:"/engagement",
-        element:<Engagement></Engagement>
+        element:<PrivateRoute><Engagement></Engagement></PrivateRoute>
       },
       {
         path:"/baby",
-        element:<Baby></Baby>
+        element:<PrivateRoute><Baby></Baby></PrivateRoute>
       },
       {
         path:"/retirement",
-        element:<Retirement></Retirement>
+        element:<PrivateRoute><Retirement></Retirement></PrivateRoute>
       }
       
     ]

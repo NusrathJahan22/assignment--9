@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleSignOut = () =>{
 logOut()
 .then()
-.chtch()
+.ctch()
   }
 
     return (
@@ -53,39 +53,7 @@ logOut()
 Contact 
 </NavLink>
               </li>
-              {/* nav 4 */}
-              {/* <li>
-              <NavLink
-  to="/service4"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-pink-300 underline" : ""
-  }
->
-Event Cake
-</NavLink>
-              </li> */}
-              {/* nav 5 */}
-              {/* <li>
-              <NavLink
-  to="/service5"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-pink-300 underline" : ""
-  }
->
-  Decoration
-</NavLink>
-              </li> */}
-              {/* nav 6 */}
-              {/* <li>
-              <NavLink
-  to="/service6"
-  className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-pink-300 underline" : ""
-  }
->
-  Transportation
-</NavLink>
-              </li> */}
+              
              
               </ul>
               </nav>
@@ -97,6 +65,7 @@ Event Cake
           <button className='bg-pink-400 btn p-2 rounded-lg font-bold'>Login</button>
           </Link>
             }
+            
               </div>
               
         </div>
